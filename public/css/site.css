@@ -1,0 +1,45 @@
+body {
+  padding-top: 69px;
+  height: 100%;
+  -webkit-text-size-adjust: auto;
+}
+html {
+  height: 100%;
+}
+#map {
+  height: 100%;
+  position: absolute;
+  top: 69px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.navbar-header a.navbar-brand {
+  margin-top: -15px;
+  margin-bottom: -20px;
+}
+.navbar-header a.navbar-brand h6 {
+  color: #ccc;
+}
+footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+footer p {
+  border-top: 1px solid #d7e0e2;
+}
+.navbar-form .form-group {
+  margin-left: 10px;
+}
+.navbar-form button {
+  margin-left: 10px;
+}
+.toast-top-right {
+  top: 70px;
+}
+.toast-success {
+  background-color: #13987e;
+}
+.toast-error {
+  background-color: #e50000;
+}
