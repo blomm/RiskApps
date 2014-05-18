@@ -1,7 +1,8 @@
 var mongoose = require('mongoose'),
-  userModel = require('../models/User')
-  courseModel=require('../models/Course'),
-  demPointModel=require('../models/DemPoint');
+  userModel = require('../models/User'),
+  demPointModel=require('../models/DemPoint'),
+  windPointModel=require('../models/WindEnergyPoint'),
+  solarPointModel=require('../models/SolarEnergyPoint');
 
 module.exports=function(config){
 
@@ -10,10 +11,11 @@ module.exports=function(config){
   var db = mongoose.connection;
   db.on('error',console.error.bind(console, 'connection error'))  ;
   db.once('open',function callback(){
-    console.log('multivision2015 db opened');
+    console.log('renewables db opened');
   });
 
   userModel.createDefaultUsers();
-  courseModel.createDefaultCourse();
+  solarPointModel.populateSolarPointCollection();
+  windPointModel.populateWindPointCollection();
   demPointModel.populateDemCollection();
 }

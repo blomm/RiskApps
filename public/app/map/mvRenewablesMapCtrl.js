@@ -1,20 +1,21 @@
 angular.module('mvApp').controller('mvRenewablesMapCtrl',['$scope', function($scope){
 
   angular.extend($scope, {
-    defaults: {
-      tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-      maxZoom: 14,
-      path: {
-        weight: 10,
-        color: '#800000',
-        opacity: 1
-      },
-      center: {
-        lat: 51.505,
-        lng: -0.09,
-        zoom: 8
+    center: {
+      autoDiscover:true,
+      zoom: 16
+    },
+    events: {
+      map: {
+        enable: ['locationfound'],
+        logic: 'emit'
       }
-    }
+    },
+    renewables:{message:"Herro world."}
+  });
+
+  $scope.$on('leafletDirectiveMap.locationfound', function(event){
+    $scope.eventDetected = "location found!!!";
   });
 
 }])

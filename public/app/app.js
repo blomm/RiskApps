@@ -31,11 +31,14 @@ angular.module('mvApp').config(function($routeProvider, $locationProvider){
     .when('/profile',{templateUrl:'/partials/account/profile',
       controller:'mvProfileCtrl', resolve:routeRoleChecks.user
     })
-    .when('/courses',{templateUrl:'/partials/courses/course-list',
-      controller:'mvCourseListCtrl'
-    })
-    .when('/renewables', {templateUrl:'/partials/renewables/dem-points',
+    .when('/dem', {templateUrl:'/partials/dem/dem-points',
       controller:'mvDemPointsCtrl'
+    })
+    .when('/solar', {templateUrl:'/partials/solar/solar-points',
+      controller:'mvSolarPointsCtrl'
+    })
+    .when('/wind', {templateUrl:'/partials/wind/wind-points',
+      controller:'mvWindPointsCtrl'
     })
     .when('/map', {templateUrl:'/partials/map/renewables-map',
       controller:'mvRenewablesMapCtrl'

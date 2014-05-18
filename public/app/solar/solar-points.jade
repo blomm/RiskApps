@@ -1,0 +1,10 @@
+.container
+  table.table.table-hover.table-striped.table-condensed
+    thead
+      tr
+        th Point ID
+        th Energy KWH
+    tbody
+      tr(ng-repeat="solarPoint in solarPoints")
+        td {{solarPoint.POINTID}}
+        td {{solarPoint.Solar_kwh2}}

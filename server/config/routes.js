@@ -1,7 +1,8 @@
 var auth = require('./auth'),
   mongoose=require('mongoose'),
   users=require('../controllers/users'),
-  courses=require('../controllers/courses'),
+  solarPoints=require('../controllers/solarPoints'),
+  windPoints=require('../controllers/windPoints'),
   demPoints=require('../controllers/demPoints');
 
 module.exports=function(app){
@@ -10,8 +11,9 @@ module.exports=function(app){
   app.post('/api/users', users.createUser);
   app.put('/api/users',users.updateUser);
 
-  app.get('/api/courses', courses.getCourses);
-  //app.post('/api/courses');
+  app.get('/api/solarpoints', solarPoints.getGridPoints);
+
+  app.get('/api/windpoints', windPoints.getGridPoints);
 
   app.get('/api/dempoints', demPoints.getDemPoints);
 

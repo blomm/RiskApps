@@ -21,7 +21,7 @@ module.exports=function(app, config){
 
     app.use(express.bodyParser());
 
-    app.use(express.session({secret: 'multi vision unicorns'}));
+    app.use(express.session({secret: 'renewable unicorns'}));
 
     app.use(passport.initialize());
 
