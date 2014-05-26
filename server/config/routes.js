@@ -3,13 +3,16 @@ var auth = require('./auth'),
   users=require('../controllers/users'),
   solarPoints=require('../controllers/solarPoints'),
   windPoints=require('../controllers/windPoints'),
-  demPoints=require('../controllers/demPoints');
+  demPoints=require('../controllers/demPoints'),
+  calcEnergy=require('../controllers/calcEnergy');
 
 module.exports=function(app){
 
   app.get('/api/users',auth.requiresRole('admin'),users.getUsers);
   app.post('/api/users', users.createUser);
   app.put('/api/users',users.updateUser);
+
+  app.get('/api/calcenergy',calcEnergy.calculateEnergy)
 
   app.get('/api/solarpoints', solarPoints.getGridPoints);
 

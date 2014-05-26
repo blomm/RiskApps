@@ -11,11 +11,11 @@ angular.module('mvApp').controller('mvRenewablesMapCtrl',['$scope', function($sc
         logic: 'emit'
       }
     },
-    renewables:{message:"Herro world."}
+    renewables:{message:"Herro world."},
+    markers:{}
   });
 
   $scope.$on('leafletDirectiveMap.locationfound', function(event){
     $scope.eventDetected = "location found!!!";
   });
-
 }])

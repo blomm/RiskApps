@@ -1,6 +1,7 @@
 var express = require('express'),
   stylus = require('stylus'),
   passport=require('passport');
+  expresspromise=require('express-promise');
 
 module.exports=function(app, config){
   //set up stylus
@@ -16,6 +17,8 @@ module.exports=function(app, config){
     app.set('view engine', 'jade');
 
     app.use(express.logger('dev'));
+
+    app.use(expresspromise());
 
     app.use(express.cookieParser());
 
