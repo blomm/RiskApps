@@ -24,7 +24,7 @@ angular.module("leaflet-directive").directive('renewables',['mvCalcEnergyFactory
               };
               //window.alert(response.solar + "  " + response.wind);
             },function(reason){
-              //window.alert('failed: ' + reason);
+              window.alert('failed: ' + reason);
             })
 
           });

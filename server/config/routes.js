@@ -8,17 +8,17 @@ var auth = require('./auth'),
 
 module.exports=function(app){
 
-  app.get('/api/users',auth.requiresRole('admin'),users.getUsers);
+  app.get('/api/users', auth.requiresRole('admin'),users.getUsers);
   app.post('/api/users', users.createUser);
-  app.put('/api/users',users.updateUser);
+  app.put('/api/users', users.updateUser);
 
-  app.get('/api/calcenergy',calcEnergy.calculateEnergy)
+  app.get('/api/calcenergy', auth.requiresRole('user'), calcEnergy.calculateEnergy)
 
-  app.get('/api/solarpoints', solarPoints.getGridPoints);
+  app.get('/api/solarpoints', auth.requiresRole('user'), solarPoints.getGridPoints);
 
-  app.get('/api/windpoints', windPoints.getGridPoints);
+  app.get('/api/windpoints', auth.requiresRole('user'), windPoints.getGridPoints);
 
-  app.get('/api/dempoints', demPoints.getDemPoints);
+  app.get('/api/dempoints', auth.requiresRole('user'), demPoints.getDemPoints);
 
   app.get('/partials/*', function(request, result){
     result.render('../../public/app/'+request.params)

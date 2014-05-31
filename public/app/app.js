@@ -32,16 +32,16 @@ angular.module('mvApp').config(function($routeProvider, $locationProvider){
       controller:'mvProfileCtrl', resolve:routeRoleChecks.user
     })
     .when('/dem', {templateUrl:'/partials/dem/dem-points',
-      controller:'mvDemPointsCtrl'
+      controller:'mvDemPointsCtrl',resolve:routeRoleChecks.user
     })
     .when('/solar', {templateUrl:'/partials/solar/solar-points',
-      controller:'mvSolarPointsCtrl'
+      controller:'mvSolarPointsCtrl',resolve:routeRoleChecks.user
     })
     .when('/wind', {templateUrl:'/partials/wind/wind-points',
-      controller:'mvWindPointsCtrl'
+      controller:'mvWindPointsCtrl',resolve:routeRoleChecks.user
     })
     .when('/map', {templateUrl:'/partials/map/renewables-map',
-      controller:'mvRenewablesMapCtrl'
+      controller:'mvRenewablesMapCtrl',resolve:routeRoleChecks.user
     })
 });
 

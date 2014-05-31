@@ -1,0 +1,10 @@
+.login-wrapper(ng-controller="mvMainLoginCtrl")
+  form.form-signin
+    h2.form-signin-heading Please login
+    input.form-control(type="text", name="username", placeholder="User Name", ng-model="userName" required="", autofocus="")
+    input.form-control(type="password", name="password", placeholder="Password", ng-model="password", required="", autofocus="")
+    .row
+      .col-xs-8
+        button.btn.btn-sm.btn-primary.btn-block(ng-click="signin(userName, password)") login
+      .col-xs-4
+        a.alt_form_option(href="/signup") or sign up
