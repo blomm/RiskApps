@@ -22,6 +22,8 @@ angular.module('mvApp').config(function($routeProvider, $locationProvider){
 
   $routeProvider
     .when('/',{templateUrl:'/partials/main/main', controller:'mvMainCtrl'})
+    .when('/home',{templateUrl:'/partials/home/home',
+      resolve:routeRoleChecks.user})
     .when('/admin/users', {templateUrl:'/partials/admin/user-list',
       controller:'mvUserListCtrl',resolve: routeRoleChecks.admin
     })
