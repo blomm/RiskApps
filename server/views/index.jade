@@ -2,7 +2,7 @@ extends ../includes/layout
 
 // tells jade to plug this content into the placeholder in the layout
 block main-content
-  nav.navbar.navbar-inverse.navbar-fixed-top.navbar-default(role="navigation")
+  nav.navbar.navbar-inverse.navbar-fixed-top.navbar-default(role="navigation", ng-controller="mvHeaderCtrl")
     .container
       .navbar-header
         button.navbar-toggle(type="button", data-toggle="collapse", data-target="#bs-example-navbar-collapse1")
@@ -11,6 +11,7 @@ block main-content
           span.icon-bar
           span.icon-bar
         a.navbar-brand(href="/") RiskApps
+        div.pull-right.login-dropdown(ng-include="'/partials/account/navbar-login'")
       .navbar-collapse.collapse#bs-example-navbar-collapse1
         ul.nav.navbar-nav
           li
@@ -23,7 +24,7 @@ block main-content
             a(href="/wind") Wind
           li
             a(href="/map") Map
-        div(ng-include="'/partials/account/navbar-login'")
+
 
   section.content
     div(ng-view)
