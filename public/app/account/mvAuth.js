@@ -1,5 +1,6 @@
 angular.module('mvApp').factory('mvAuth',['$http','$q','mvIdentity','mvUser',function($http,$q,mvIdentity,mvUser){
   return{
+
     authenticateUser: function(userName, password){
       var dfd=$q.defer();
       $http.post('/login',{username:userName,password:password}).then(function(response){
@@ -15,6 +16,7 @@ angular.module('mvApp').factory('mvAuth',['$http','$q','mvIdentity','mvUser',fun
       })
       return dfd.promise;
     },
+
     createUser:function(newUserData){
       var newUser=new mvUser(newUserData);
       var dfd=$q.defer();
@@ -50,6 +52,7 @@ angular.module('mvApp').factory('mvAuth',['$http','$q','mvIdentity','mvUser',fun
       }) ;
       return dfd.promise;
     },
+
     authoriseCurrentUserForRoute:function(role){
       if(mvIdentity.isAuthorised('admin')){
         return true;
@@ -58,6 +61,7 @@ angular.module('mvApp').factory('mvAuth',['$http','$q','mvIdentity','mvUser',fun
         return $q.reject('not authorised');
       }
     },
+
     authoriseAuthenticatedUserForRoute:function(){
       if(mvIdentity.isAuthenticated()){
         return true;

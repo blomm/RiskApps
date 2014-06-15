@@ -2,9 +2,30 @@ var User=require('mongoose').model('users'),
   encryption=require('../utilities/encryption');
 
 exports.getUsers=function(req,res){
-  User.find({}).exec(function(err,collection){
-    res.send(collection)
-  })
+
+  if(req.query._id !== undefined)
+  {
+    console.log("Selecting single user");
+    User.findOne({ _id: req.query._id }).exec(function (err, singleUser) {
+      res.send(singleUser);
+    });
+  }
+  else{
+    console.log("Selecting many users");
+    User.find({}).exec(function(err,collection){
+      res.send(collection)
+    })
+  }
+
+}
+
+exports.deleteUser=function(req,res){
+  console.log(req.body);
+  console.log("should delete user here....");
+  User.findOneAndRemove({ _id: req.query._id }, function (err, user) {
+    console.log("should remove... " + user);
+    res.send(user);
+  });
 }
 
 exports.createUser=function(req,res,next){
