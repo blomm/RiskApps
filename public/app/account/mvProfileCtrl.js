@@ -5,6 +5,7 @@ angular.module('mvApp').controller('mvProfileCtrl',['$scope','mvIdentity','mvAut
   $scope.fname=mvIdentity.currentUser.firstName;
   $scope.lname=mvIdentity.currentUser.lastName;
   $scope.email=mvIdentity.currentUser.email;
+  $scope.role=mvIdentity.currentUser.roles.join();
 
   $scope.update=function(){
     var newUserData={

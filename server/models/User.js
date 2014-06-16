@@ -37,19 +37,18 @@ var User = mongoose.model('users', userSchema);
 function createDefaultUsers(){
   //3. create some users if none exist - if db doesn't exist, it will be created
   User.find({}).exec(function(err, collection){
-    console.log("collections length: "+collection.length);
+    console.log("number of users in db: "+collection.length);
     if(collection.length===0){
-      console.log("no valid users in the db, need to add them by editing User.js file in the models folder");
-//      var salt, hash;
-//      salt=encryption.createSalt();
-//      hash=encryption.hashPwd(salt,'*****');
-//      User.create({firstName:'Joe',lastName:'Brown',userName:'brownj', email:'brownj@gmail.com', salt:salt,hashed_password:hash, roles: ['admin']});
-//      salt=encryption.createSalt();
-//      hash=encryption.hashPwd(salt,'*****');
-//      User.create({firstName:'Mike',lastName:'Blom',userName:'blomm', email:'blomm@gmail.com', salt:salt,hashed_password:hash,roles:[]}) ;
-//      salt=encryption.createSalt();
-//      hash=encryption.hashPwd(salt,'*****');
-//      User.create({firstName:'Chris',lastName:'Smith',userName:'smithc', email:'smithc@gmail.com', salt:salt,hashed_password:hash});
+      var salt, hash;
+      salt=encryption.createSalt();
+      hash=encryption.hashPwd(salt,'*****');
+      User.create({firstName:'Joe',lastName:'Brown',userName:'brownj', email:'brownj@gmail.com', salt:salt,hashed_password:hash, roles: ['admin']});
+      salt=encryption.createSalt();
+      hash=encryption.hashPwd(salt,'*****');
+      User.create({firstName:'Mike',lastName:'Blom',userName:'blomm', email:'blomm@gmail.com', salt:salt,hashed_password:hash,roles:['user']}) ;
+      salt=encryption.createSalt();
+      hash=encryption.hashPwd(salt,'*****');
+      User.create({firstName:'Chris',lastName:'Smith',userName:'smithc', email:'smithc@gmail.com', salt:salt,hashed_password:hash,roles:['user']});
     }
   })
 

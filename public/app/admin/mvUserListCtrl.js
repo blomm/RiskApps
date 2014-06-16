@@ -1,5 +1,7 @@
 angular.module('mvApp').controller('mvUserListCtrl', ['$scope','mvUser',function($scope,mvUser){
 
+  $scope.allRoles=['admin','user'];
+
   $scope.users= mvUser.query();
 
   $scope.removeUser=function(user){

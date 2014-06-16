@@ -20,9 +20,9 @@
             .col-md-10
               input.form-control(name="email",type="email", placeholder="Email", ng-model="email", required)
           .form-group
-            label.col-md-2.control-label(for="groups") Role
+            label.col-md-2.control-label(for="role") Role
             .col-md-10
-                select.form-control(ng-model="roleChoice", ng-options="role for role in signUpRoles")
+              select.form-control(name="role", ng-model="roleChoice", ng-options="role for role in signUpRoles")
           .form-group
             label.col-md-2.control-label(for="password") Password
             .col-md-10

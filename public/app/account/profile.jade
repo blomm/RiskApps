@@ -20,6 +20,10 @@
             .col-md-10
               input.form-control(name="email",type="email", placeholder="Email", ng-model="email", required)
           .form-group
+            label.col-md-2.control-label(for="role") Role
+            .col-md-10
+              input.form-control(name="role", ng-model="role", disabled)
+          .form-group
             label.col-md-2.control-label(for="password") Password
             .col-md-10
               input.form-control(name="password",type="password", placeholder="Password", ng-model="password")

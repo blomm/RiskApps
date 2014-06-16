@@ -2,7 +2,8 @@
   table.table
     tr(ng-repeat="user in users")
       td {{user.firstName + ' ' + user.lastName}}
-      td(ng-repeat="role in user.roles") {{role}}
+      td
+        select(ng-model="user.roles[0]", ng-options="role for role in allRoles")
       td
         button.btn.btn-danger(type="button", ng-click="removeUser(user)")
           span.glyphicon.glyphicon-remove
